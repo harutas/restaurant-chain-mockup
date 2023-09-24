@@ -2,7 +2,7 @@
 
 namespace Helpers;
 
-use Models\User;
+use Models\Users\User;
 use Faker\Factory;
 
 

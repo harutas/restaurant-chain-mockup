@@ -23,6 +23,33 @@ $max = (int)$max;
 
 // ユーザーの生成
 $users = Helpers\RandomGenerator::users($min, $max);
+
+// Test
+
+// use Faker\Factory;
+// use Models\Users\Employee;
+
+// $faker = Factory::create();
+
+// $employee = new Models\Users\Employee(
+//   $faker->randomNumber(),
+//   $faker->firstName(),
+//   $faker->lastName(),
+//   $faker->email,
+//   $faker->password,
+//   $faker->phoneNumber,
+//   $faker->address,
+//   $faker->dateTimeThisCentury,
+//   $faker->dateTimeBetween('-10 years', '+20 years'),
+//   $faker->randomElement(['admin', 'user', 'editor']),
+//   "Chef",
+//   120,
+//   $faker->dateTimeThisCentury,
+//   ["大賞", "金賞"]
+// );
+// echo $employee->toHTML();
+// echo $employee->toString();
+// echo $employee->toMarkdown();
 ?>
 
 <!DOCTYPE html>
