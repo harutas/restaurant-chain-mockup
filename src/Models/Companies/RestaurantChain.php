@@ -59,7 +59,7 @@ class RestaurantChain extends Company implements FileConvertible
   public function toString(): string
   {
     return sprintf(
-      "Company Name: %s\nFounding Year: %s\nDescription: %s\nWebsite: %s\nPhone: %s\nIndustry: %s\n
+      "Restaurant Chain Name: %s\nFounding Year: %s\nDescription: %s\nWebsite: %s\nPhone: %s\nIndustry: %s\n
       CEO: %s\nIs Publicly Traded: %s\nCountry: %s\nFounder: %s\nTotal Employees: %s\n
       Chain ID: %s\nRestaurant Locations: %s\nCuisine Type: %s\nNumber Of Locations: %s\nParent Company: %s\n",
       $this->name,
@@ -85,25 +85,25 @@ class RestaurantChain extends Company implements FileConvertible
   {
     return sprintf(
       "
-            <div class='company-card'>
-                <div class='avatar'>SAMPLE</div>
-                <h2>%s</h2>
-                <p>Founding Year: %s</p>
-                <p>Description: %s</p>
-                <p>Website: %s</p>
-                <p>Phone: %s</p>
-                <p>Industry: %s</p>
-                <p>CEO: %s</p>
-                <p>Is Publicly Traded: %s</p>
-                <p>Country: %s</p>
-                <p>Founder: %s</p>
-                <p>Total Employees: %s</p>
-                <p>Chain ID: %s</p>
-                <p>Restaurant Locations: %s</p>
-                <p>Cuisine Type: %s</p>
-                <p>Number Of Locations: %s</p>
-                <p>Parent Company: %s</p>
-            </div>",
+        <div class='restaurant-chain-card'>
+          <div class='avatar'>SAMPLE</div>
+          <h2>%s</h2>
+          <p>Founding Year: %s</p>
+          <p>Description: %s</p>
+          <p>Website: %s</p>
+          <p>Phone: %s</p>
+          <p>Industry: %s</p>
+          <p>CEO: %s</p>
+          <p>Is Publicly Traded: %s</p>
+          <p>Country: %s</p>
+          <p>Founder: %s</p>
+          <p>Total Employees: %s</p>
+          <p>Chain ID: %s</p>
+          <p>Restaurant Locations: %s</p>
+          <p>Cuisine Type: %s</p>
+          <p>Number Of Locations: %s</p>
+          <p>Parent Company: %s</p>
+        </div>",
       $this->name,
       $this->foundingYear,
       $this->description,
@@ -126,23 +126,23 @@ class RestaurantChain extends Company implements FileConvertible
   public function toMarkdown(): string
   {
     return sprintf(
-      "## Company Name: {$this->name}
-             - Founding Year: {$this->foundingYear}
-             - Description: {$this->description}
-             - Website: {$this->website}
-             - Phone: {$this->phone}
-             - Industry: {$this->industry}
-             - CEO: {$this->ceo}
-             - Is Publicly Traded: {$this->isPubliclyTraded}
-             - Country: {$this->country}
-             - Founder: {$this->founder}
-             - Total Employees: {$this->totalEmployees}
-             - Chain ID: {$this->chainId}
-             - Restaurant Locations: %s
-             - Cuisine Type: {$this->cuisineType}
-             - Number Of Locations: {$this->numberOfLocations}
-             - Parent Company: {$this->parentCompany}
-             ",
+      "## Restaurant Chain Name: {$this->name}
+         - Founding Year: {$this->foundingYear}
+         - Description: {$this->description}
+         - Website: {$this->website}
+         - Phone: {$this->phone}
+         - Industry: {$this->industry}
+         - CEO: {$this->ceo}
+         - Is Publicly Traded: {$this->isPubliclyTraded}
+         - Country: {$this->country}
+         - Founder: {$this->founder}
+         - Total Employees: {$this->totalEmployees}
+         - Chain ID: {$this->chainId}
+         - Restaurant Locations: %s
+         - Cuisine Type: {$this->cuisineType}
+         - Number Of Locations: {$this->numberOfLocations}
+         - Parent Company: {$this->parentCompany}
+      ",
       implode(", ", $this->restaurantLocations)
     );
   }

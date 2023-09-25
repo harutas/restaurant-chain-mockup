@@ -66,20 +66,20 @@ class Company implements FileConvertible
   {
     return sprintf(
       "
-            <div class='company-card'>
-                <div class='avatar'>SAMPLE</div>
-                <h2>%s</h2>
-                <p>Founding Year: %s</p>
-                <p>Description: %s</p>
-                <p>Website: %s</p>
-                <p>Phone: %s</p>
-                <p>Industry: %s</p>
-                <p>CEO: %s</p>
-                <p>Is Publicly Traded: %s</p>
-                <p>Country: %s</p>
-                <p>Founder: %s</p>
-                <p>Total Employees: %s</p>
-            </div>",
+        <div class='company-card'>
+          <div class='avatar'>SAMPLE</div>
+          <h2>%s</h2>
+          <p>Founding Year: %s</p>
+          <p>Description: %s</p>
+          <p>Website: %s</p>
+          <p>Phone: %s</p>
+          <p>Industry: %s</p>
+          <p>CEO: %s</p>
+          <p>Is Publicly Traded: %s</p>
+          <p>Country: %s</p>
+          <p>Founder: %s</p>
+          <p>Total Employees: %s</p>
+        </div>",
       $this->name,
       $this->foundingYear,
       $this->description,

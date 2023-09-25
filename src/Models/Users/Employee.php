@@ -71,20 +71,20 @@ class Employee extends User implements FileConvertible
   {
     return sprintf(
       "
-            <div class='user-card'>
-                <div class='avatar'>SAMPLE</div>
-                <h2>%s %s</h2>
-                <p>%s</p>
-                <p>%s</p>
-                <p>%s</p>
-                <p>Birth Date: %s</p>
-                <p>Membership Expiration Date: %s</p>
-                <p>Role: %s</p>
-                <p>Job Title: %s</p>
-                <p>Salary: %s</p>
-                <p>Start Date: %s</p>
-                <p>Awards: %s</p>
-            </div>",
+        <div class='user-card'>
+          <div class='avatar'>SAMPLE</div>
+          <h2>%s %s</h2>
+          <p>%s</p>
+          <p>%s</p>
+          <p>%s</p>
+          <p>Birth Date: %s</p>
+          <p>Membership Expiration Date: %s</p>
+          <p>Role: %s</p>
+          <p>Job Title: %s</p>
+          <p>Salary: %s</p>
+          <p>Start Date: %s</p>
+          <p>Awards: %s</p>
+        </div>",
       $this->firstName,
       $this->lastName,
       $this->email,
