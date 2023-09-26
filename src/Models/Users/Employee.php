@@ -47,6 +47,15 @@ class Employee extends User implements FileConvertible
     $this->awards = $awards;
   }
 
+  public function getFirstName(): string
+  {
+    return $this->firstName;
+  }
+  public function getLastName(): string
+  {
+    return $this->lastName;
+  }
+
   public function toString(): string
   {
     return sprintf(

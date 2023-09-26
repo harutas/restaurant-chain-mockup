@@ -40,6 +40,17 @@ class RestaurantLocation implements FileConvertible
     return $this->employees;
   }
 
+  // employeeの名前の配列を返す
+  private function employeesToStringArray(): array
+  {
+    $stringEmployeeNameArray = [];
+    $employees = $this->getEmployees();
+    for ($i = 0; $i < count($employees); $i++) {
+      $stringEmployeeNameArray[] = $employees[$i]->getFirstName() . " " . $employees[$i]->getLastName();
+    }
+    return $stringEmployeeNameArray;
+  }
+
   public function toString(): string
   {
     return sprintf(
@@ -49,10 +60,9 @@ class RestaurantLocation implements FileConvertible
       $this->city,
       $this->state,
       $this->zipCode,
-      // Todo employeesを文字列に
-      $this->employees,
-      $this->isOpen,
-      $this->hasDriveThru
+      implode(", ", $this->employeesToStringArray()),
+      $this->isOpen ? "Open" : "Close",
+      $this->hasDriveThru ? "Available" : "Not Available"
     );
   }
 
@@ -76,25 +86,28 @@ class RestaurantLocation implements FileConvertible
       $this->city,
       $this->state,
       $this->zipCode,
-      // Todo employeesを文字列に
-      $this->employees,
-      $this->isOpen,
-      $this->hasDriveThru
+      implode(", ", $this->employeesToStringArray()),
+      $this->isOpen ? "Open" : "Close",
+      $this->hasDriveThru ? "Available" : "Not Available"
     );
   }
 
   public function toMarkdown(): string
   {
-    return "## Restaurant Location Name: {$this->name}
-             - Address: {$this->address}
-             - City: {$this->city}
-             - State: {$this->state}
-             - Zip Code: {$this->zipCode}
-             // Todo employeesを文字列に
-             - Employees: {$this->employees}
-             - Is Open: {$this->isOpen}
-             - Has Drive Thru: {$this->hasDriveThru}
-             ";
+    return sprintf(
+      "## Restaurant Location Name: {$this->name}
+        - Address: {$this->address}
+        - City: {$this->city}
+        - State: {$this->state}
+        - Zip Code: {$this->zipCode}
+        - Employees: %s
+        - Is Open: %s
+        - Has Drive Thru: %s
+      ",
+      implode(", ", $this->employeesToStringArray()),
+      $this->isOpen ? "Open" : "Close",
+      $this->hasDriveThru ? "Available" : "Not Available"
+    );
   }
 
   public function toArray(): array

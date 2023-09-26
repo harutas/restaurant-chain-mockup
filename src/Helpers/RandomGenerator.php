@@ -95,14 +95,14 @@ class RandomGenerator
 
     // TODO: employeesを作成
     $employees = [];
-    $numberOfEmployees = $faker->numberBetween(0, 10);
+    $numberOfEmployees = $faker->numberBetween(1, 5);
 
     for ($i = 0; $i < $numberOfEmployees; $i++) {
       $employees[] = self::employee();
     }
 
     return new RestaurantLocation(
-      $faker->name(),
+      $faker->company(),
       $faker->address(),
       $faker->city(),
       $faker->state(),

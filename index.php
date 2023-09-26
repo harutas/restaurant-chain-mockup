@@ -1,5 +1,8 @@
 <?php
 // コードベースのファイルのオートロード
+
+use Helpers\RandomGenerator;
+
 spl_autoload_extensions(".php");
 spl_autoload_register(function ($class) {
   $base_dir = __DIR__ . "/src/";
@@ -24,6 +27,7 @@ $max = (int)$max;
 // ユーザーの生成
 $users = Helpers\RandomGenerator::users($min, $max);
 $employee = Helpers\RandomGenerator::employee();
+$restaurantLocation = Helpers\RandomGenerator::restaurantLocation()
 // Test
 
 // use Faker\Factory;
@@ -59,13 +63,14 @@ $employee = Helpers\RandomGenerator::employee();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profiles</title>
-  <link rel="stylesheet" href="css\styles.css">
+  <!-- <link rel="stylesheet" href="css\styles.css"> -->
 </head>
 
 <body>
   <h1>User Profiles</h1>
 
   <?php echo $employee->toHTML() ?>
+  <?php echo $restaurantLocation->toHTML() ?>
   <?php foreach ($users as $user) : ?>
     <div class="user-card">
       <!-- ユーザー情報の表示 -->
