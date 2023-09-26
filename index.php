@@ -1,8 +1,6 @@
 <?php
 // コードベースのファイルのオートロード
 
-use Helpers\RandomGenerator;
-
 spl_autoload_extensions(".php");
 spl_autoload_register(function ($class) {
   $base_dir = __DIR__ . "/src/";
@@ -17,43 +15,16 @@ spl_autoload_register(function ($class) {
 require_once 'vendor/autoload.php';
 
 // クエリ文字列からパラメータを取得
-$min = $_GET['min'] ?? 5;
-$max = $_GET['max'] ?? 20;
+$min = $_GET['min'] ?? 1;
+$max = $_GET['max'] ?? 5;
 
 // パラメータが整数であることを確認
 $min = (int)$min;
 $max = (int)$max;
 
 // ユーザーの生成
-$users = Helpers\RandomGenerator::users($min, $max);
-$employee = Helpers\RandomGenerator::employee();
-$restaurantLocation = Helpers\RandomGenerator::restaurantLocation()
-// Test
+$restaurantChains = Helpers\RandomGenerator::restaurantChains($min, $max);
 
-// use Faker\Factory;
-// use Models\Users\Employee;
-
-// $faker = Factory::create();
-
-// $employee = new Models\Users\Employee(
-//   $faker->randomNumber(),
-//   $faker->firstName(),
-//   $faker->lastName(),
-//   $faker->email,
-//   $faker->password,
-//   $faker->phoneNumber,
-//   $faker->address,
-//   $faker->dateTimeThisCentury,
-//   $faker->dateTimeBetween('-10 years', '+20 years'),
-//   $faker->randomElement(['admin', 'user', 'editor']),
-//   "Chef",
-//   120,
-//   $faker->dateTimeThisCentury,
-//   ["大賞", "金賞"]
-// );
-// echo $employee->toHTML();
-// echo $employee->toString();
-// echo $employee->toMarkdown();
 ?>
 
 <!DOCTYPE html>
@@ -67,15 +38,8 @@ $restaurantLocation = Helpers\RandomGenerator::restaurantLocation()
 </head>
 
 <body>
-  <h1>User Profiles</h1>
-
-  <?php echo $employee->toHTML() ?>
-  <?php echo $restaurantLocation->toHTML() ?>
-  <?php foreach ($users as $user) : ?>
-    <div class="user-card">
-      <!-- ユーザー情報の表示 -->
-      <?php echo $user->toHTML() ?>
-    </div>
+  <?php foreach ($restaurantChains as $restaurantChain) : ?>
+    <h1>Restaurant Chain <?php echo $restaurantChain->getName() ?></h1>
   <?php endforeach; ?>
 
 </body>

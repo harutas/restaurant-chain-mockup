@@ -7,7 +7,7 @@ use Models\Companies\Company;
 
 class RestaurantChain extends Company implements FileConvertible
 {
-  private int $chainId;
+  private string $chainId;
   private array $restaurantLocations;
   private string $cuisineType;
   private string $parentCompany;
@@ -24,7 +24,7 @@ class RestaurantChain extends Company implements FileConvertible
     string $country,
     string $founder,
     int $totalEmployees,
-    int $chainId,
+    string $chainId,
     array $restaurantLocations,
     string $cuisineType,
     string $parentCompany
@@ -52,9 +52,30 @@ class RestaurantChain extends Company implements FileConvertible
     $this->parentCompany = $parentCompany;
   }
 
+  public function getName(): string
+  {
+    return $this->name;
+  }
+
+  public function getRestaurantLocations(): array
+  {
+    return $this->restaurantLocations;
+  }
+
   public function getNumberOfLocations(): int
   {
     return count($this->restaurantLocations);
+  }
+
+  // restaurantLocationsの名前の配列を返す
+  private function restaurantLocationsToStringArray(): array
+  {
+    $stringRestaurantLocationsNameArray = [];
+    $restaurantLocations = $this->getRestaurantLocations();
+    for ($i = 0; $i < count($restaurantLocations); $i++) {
+      $stringRestaurantLocationsNameArray[] = $restaurantLocations[$i]->getName();
+    }
+    return $stringRestaurantLocationsNameArray;
   }
 
   public function toString(): string
@@ -72,7 +93,7 @@ class RestaurantChain extends Company implements FileConvertible
       $this->ceo,
       $this->isPubliclyTraded,
       $this->chainId,
-      implode(", ", $this->restaurantLocations),
+      implode(", ", $this->restaurantLocationsToStringArray()),
       $this->cuisineType,
       $this->getNumberOfLocations(),
       $this->parentCompany
@@ -108,7 +129,7 @@ class RestaurantChain extends Company implements FileConvertible
       $this->ceo,
       $this->isPubliclyTraded,
       $this->chainId,
-      implode(", ", $this->restaurantLocations),
+      implode(", ", $this->restaurantLocationsToStringArray()),
       $this->cuisineType,
       $this->getNumberOfLocations(),
       $this->parentCompany
@@ -132,7 +153,7 @@ class RestaurantChain extends Company implements FileConvertible
          - Number Of Locations: %s
          - Parent Company: {$this->parentCompany}
       ",
-      implode(", ", $this->restaurantLocations),
+      implode(", ", $this->restaurantLocationsToStringArray()),
       $this->getNumberOfLocations()
     );
   }

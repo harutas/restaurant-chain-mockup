@@ -63,12 +63,52 @@ class RandomGenerator
     );
   }
 
+  public static function employees(int $min = 1, int $max = 5): array
+  {
+    $faker = Factory::create();
+    $employees = [];
+    $numberOfEmployees = $faker->numberBetween($min, $max);
+
+    for ($i = 0; $i < $numberOfEmployees; $i++) {
+      $employees[] = self::employee();
+    }
+
+    return $employees;
+  }
+
+  public static function restaurantLocation(): RestaurantLocation
+  {
+    $faker = Factory::create();
+    $employees = self::Employees();
+
+    return new RestaurantLocation(
+      $faker->company(),
+      $faker->address(),
+      $faker->city(),
+      $faker->state(),
+      $faker->postcode(),
+      $employees,
+      $faker->boolean(),
+      $faker->boolean()
+    );
+  }
+
+  public static function  restaurantLocations($min = 1, $max = 5): array
+  {
+    $faker = Factory::create();
+    $restaurantLocations = [];
+    $numOfRestaurantLocations = $faker->numberBetween($min, $max);
+
+    for ($i = 0; $i < $numOfRestaurantLocations; $i++) {
+      $restaurantLocations[] = self::restaurantLocation();
+    }
+    return $restaurantLocations;
+  }
+
   public static function restaurantChain(): RestaurantChain
   {
     $faker = Factory::create();
-
-    // Todo: RestaurantLocationsを生成
-    $restaurantLocations = [];
+    $restaurantLocations = self::restaurantLocations();
 
     return new RestaurantChain(
       $faker->company(),
@@ -89,27 +129,16 @@ class RandomGenerator
     );
   }
 
-  public static function restaurantLocation(): RestaurantLocation
+  public static function  restaurantChains(int $min, int $max): array
   {
     $faker = Factory::create();
+    $restaurantChains = [];
+    $numberOfRestaurantCains = $faker->numberBetween($min, $max);
 
-    // TODO: employeesを作成
-    $employees = [];
-    $numberOfEmployees = $faker->numberBetween(1, 5);
-
-    for ($i = 0; $i < $numberOfEmployees; $i++) {
-      $employees[] = self::employee();
+    for ($i = 0; $i < $numberOfRestaurantCains; $i++) {
+      $restaurantChains[] = self::restaurantChain();
     }
 
-    return new RestaurantLocation(
-      $faker->company(),
-      $faker->address(),
-      $faker->city(),
-      $faker->state(),
-      $faker->postcode(),
-      $employees,
-      $faker->boolean(),
-      $faker->boolean()
-    );
+    return $restaurantChains;
   }
 }
