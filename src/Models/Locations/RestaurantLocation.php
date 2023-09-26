@@ -35,6 +35,11 @@ class RestaurantLocation implements FileConvertible
     $this->hasDriveThru = $hasDriveThru;
   }
 
+  public function getEmployees(): array
+  {
+    return $this->employees;
+  }
+
   public function toString(): string
   {
     return sprintf(

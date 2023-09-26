@@ -23,7 +23,7 @@ $max = (int)$max;
 
 // ユーザーの生成
 $users = Helpers\RandomGenerator::users($min, $max);
-
+$employee = Helpers\RandomGenerator::employee();
 // Test
 
 // use Faker\Factory;
@@ -65,6 +65,7 @@ $users = Helpers\RandomGenerator::users($min, $max);
 <body>
   <h1>User Profiles</h1>
 
+  <?php echo $employee->toHTML() ?>
   <?php foreach ($users as $user) : ?>
     <div class="user-card">
       <!-- ユーザー情報の表示 -->

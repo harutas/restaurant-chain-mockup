@@ -10,7 +10,6 @@ class RestaurantChain extends Company implements FileConvertible
   private int $chainId;
   private array $restaurantLocations;
   private string $cuisineType;
-  private int $numberOfLocations;
   private string $parentCompany;
 
   public function __construct(
@@ -28,7 +27,6 @@ class RestaurantChain extends Company implements FileConvertible
     int $chainId,
     array $restaurantLocations,
     string $cuisineType,
-    int $numberOfLocations,
     string $parentCompany
   ) {
     parent::__construct(
@@ -46,14 +44,17 @@ class RestaurantChain extends Company implements FileConvertible
       $chainId,
       $restaurantLocations,
       $cuisineType,
-      $numberOfLocations,
       $parentCompany
     );
     $this->chainId = $chainId;
     $this->restaurantLocations = $restaurantLocations;
     $this->cuisineType = $cuisineType;
-    $this->numberOfLocations = $numberOfLocations;
     $this->parentCompany = $parentCompany;
+  }
+
+  public function getNumberOfLocations(): int
+  {
+    return count($this->restaurantLocations);
   }
 
   public function toString(): string
@@ -76,7 +77,7 @@ class RestaurantChain extends Company implements FileConvertible
       $this->chainId,
       implode(", ", $this->restaurantLocations),
       $this->cuisineType,
-      $this->numberOfLocations,
+      $this->getNumberOfLocations(),
       $this->parentCompany
     );
   }
@@ -118,7 +119,7 @@ class RestaurantChain extends Company implements FileConvertible
       $this->chainId,
       implode(", ", $this->restaurantLocations),
       $this->cuisineType,
-      $this->numberOfLocations,
+      $this->getNumberOfLocations(),
       $this->parentCompany
     );
   }
@@ -140,10 +141,11 @@ class RestaurantChain extends Company implements FileConvertible
          - Chain ID: {$this->chainId}
          - Restaurant Locations: %s
          - Cuisine Type: {$this->cuisineType}
-         - Number Of Locations: {$this->numberOfLocations}
+         - Number Of Locations: %s
          - Parent Company: {$this->parentCompany}
       ",
-      implode(", ", $this->restaurantLocations)
+      implode(", ", $this->restaurantLocations),
+      $this->getNumberOfLocations()
     );
   }
 
@@ -164,7 +166,7 @@ class RestaurantChain extends Company implements FileConvertible
       "chainId" => $this->chainId,
       "restaurantLocations" => $this->restaurantLocations,
       "cuisineType" => $this->cuisineType,
-      "numberOfLocations" => $this->numberOfLocations,
+      "numberOfLocations" => $this->getNumberOfLocations(),
       "parentCompany" => $this->parentCompany
     ];
   }
