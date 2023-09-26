@@ -94,12 +94,12 @@ class RandomGenerator
     $faker = Factory::create();
 
     // TODO: employeesを作成
+    $employees = [];
     $numberOfEmployees = $faker->numberBetween(0, 10);
 
     for ($i = 0; $i < $numberOfEmployees; $i++) {
-      $numberOfEmployees[] = self::employee();
+      $employees[] = self::employee();
     }
-    $employees = [];
 
     return new RestaurantLocation(
       $faker->name(),
