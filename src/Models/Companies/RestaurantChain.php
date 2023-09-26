@@ -71,9 +71,6 @@ class RestaurantChain extends Company implements FileConvertible
       $this->industry,
       $this->ceo,
       $this->isPubliclyTraded,
-      $this->country,
-      $this->founder,
-      $this->totalEmployees,
       $this->chainId,
       implode(", ", $this->restaurantLocations),
       $this->cuisineType,
@@ -96,9 +93,6 @@ class RestaurantChain extends Company implements FileConvertible
           <p>Industry: %s</p>
           <p>CEO: %s</p>
           <p>Is Publicly Traded: %s</p>
-          <p>Country: %s</p>
-          <p>Founder: %s</p>
-          <p>Total Employees: %s</p>
           <p>Chain ID: %s</p>
           <p>Restaurant Locations: %s</p>
           <p>Cuisine Type: %s</p>
@@ -113,9 +107,6 @@ class RestaurantChain extends Company implements FileConvertible
       $this->industry,
       $this->ceo,
       $this->isPubliclyTraded,
-      $this->country,
-      $this->founder,
-      $this->totalEmployees,
       $this->chainId,
       implode(", ", $this->restaurantLocations),
       $this->cuisineType,
@@ -135,9 +126,6 @@ class RestaurantChain extends Company implements FileConvertible
          - Industry: {$this->industry}
          - CEO: {$this->ceo}
          - Is Publicly Traded: {$this->isPubliclyTraded}
-         - Country: {$this->country}
-         - Founder: {$this->founder}
-         - Total Employees: {$this->totalEmployees}
          - Chain ID: {$this->chainId}
          - Restaurant Locations: %s
          - Cuisine Type: {$this->cuisineType}
@@ -160,9 +148,6 @@ class RestaurantChain extends Company implements FileConvertible
       "industry" => $this->industry,
       "ceo" => $this->ceo,
       "isPubliclyTraded" => $this->isPubliclyTraded,
-      "country" => $this->country,
-      "founder" => $this->founder,
-      "totalEmployees" => $this->totalEmployees,
       "chainId" => $this->chainId,
       "restaurantLocations" => $this->restaurantLocations,
       "cuisineType" => $this->cuisineType,

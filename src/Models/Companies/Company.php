@@ -14,9 +14,6 @@ class Company implements FileConvertible
   protected string $industry;
   protected string $ceo;
   protected bool $isPubliclyTraded;
-  protected string $country;
-  protected string $founder;
-  protected int $totalEmployees;
   public function __construct(
     string $name,
     int $foundingYear,
@@ -26,9 +23,6 @@ class Company implements FileConvertible
     string $industry,
     string $ceo,
     bool $isPubliclyTraded,
-    string $country,
-    string $founder,
-    int $totalEmployees
   ) {
     $this->name = $name;
     $this->foundingYear = $foundingYear;
@@ -38,9 +32,6 @@ class Company implements FileConvertible
     $this->industry = $industry;
     $this->ceo = $ceo;
     $this->isPubliclyTraded = $isPubliclyTraded;
-    $this->country = $country;
-    $this->founder = $founder;
-    $this->totalEmployees = $totalEmployees;
   }
 
   public function toString(): string
@@ -56,9 +47,6 @@ class Company implements FileConvertible
       $this->industry,
       $this->ceo,
       $this->isPubliclyTraded,
-      $this->country,
-      $this->founder,
-      $this->totalEmployees
     );
   }
 
@@ -76,9 +64,6 @@ class Company implements FileConvertible
           <p>Industry: %s</p>
           <p>CEO: %s</p>
           <p>Is Publicly Traded: %s</p>
-          <p>Country: %s</p>
-          <p>Founder: %s</p>
-          <p>Total Employees: %s</p>
         </div>",
       $this->name,
       $this->foundingYear,
@@ -88,9 +73,6 @@ class Company implements FileConvertible
       $this->industry,
       $this->ceo,
       $this->isPubliclyTraded,
-      $this->country,
-      $this->founder,
-      $this->totalEmployees
     );
   }
 
@@ -104,9 +86,6 @@ class Company implements FileConvertible
              - Industry: {$this->industry}
              - CEO: {$this->ceo}
              - Is Publicly Traded: {$this->isPubliclyTraded}
-             - Country: {$this->country}
-             - Founder: {$this->founder}
-             - Total Employees: {$this->totalEmployees}
              ";
   }
 
@@ -121,9 +100,6 @@ class Company implements FileConvertible
       "industry" => $this->industry,
       "ceo" => $this->ceo,
       "isPubliclyTraded" => $this->isPubliclyTraded,
-      "country" => $this->country,
-      "founder" => $this->founder,
-      "totalEmployees" => $this->totalEmployees
     ];
   }
 }
