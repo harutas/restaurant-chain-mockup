@@ -90,16 +90,15 @@ class User implements FileConvertible
   {
     return sprintf(
       "
-            <div class='user-card'>
-                <div class='avatar'>SAMPLE</div>
-                <h2>%s %s</h2>
-                <p>%s</p>
-                <p>%s</p>
-                <p>%s</p>
-                <p>Birth Date: %s</p>
-                <p>Membership Expiration Date: %s</p>
-                <p>Role: %s</p>
-            </div>",
+        <div class='user-card'>
+          <h2>%s %s</h2>
+          <p>%s</p>
+          <p>%s</p>
+          <p>%s</p>
+          <p>Birth Date: %s</p>
+          <p>Membership Expiration Date: %s</p>
+          <p>Role: %s</p>
+        </div>",
       $this->firstName,
       $this->lastName,
       $this->email,
@@ -114,11 +113,11 @@ class User implements FileConvertible
   public function toMarkdown(): string
   {
     return "## User: {$this->firstName} {$this->lastName}
-                 - Email: {$this->email}
-                 - Phone Number: {$this->phoneNumber}
-                 - Address: {$this->address}
-                 - Birth Date: {$this->birthDate}
-                 - Role: {$this->role}";
+   - Email: {$this->email}
+   - Phone Number: {$this->phoneNumber}
+   - Address: {$this->address}
+   - Birth Date: {$this->birthDate}
+   - Role: {$this->role}";
   }
 
   public function toArray(): array

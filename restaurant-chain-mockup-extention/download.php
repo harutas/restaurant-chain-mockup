@@ -1,8 +1,5 @@
 <?php
 // コードベースのファイルのオートロード
-
-use Models\Companies\RestaurantChain;
-
 spl_autoload_extensions(".php");
 spl_autoload_register(function ($class) {
   $base_dir = __DIR__ . "/src/";
