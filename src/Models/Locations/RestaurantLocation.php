@@ -6,6 +6,7 @@ use Interfaces\FileConvertible;
 
 class RestaurantLocation implements FileConvertible
 {
+  private string $id;
   private string $name;
   private string $address;
   private string $city;
@@ -16,6 +17,7 @@ class RestaurantLocation implements FileConvertible
   private bool $hasDriveThru;
 
   public function __construct(
+    string $id,
     string $name,
     string $address,
     string $city,
@@ -25,6 +27,7 @@ class RestaurantLocation implements FileConvertible
     bool $isOpen,
     bool $hasDriveThru,
   ) {
+    $this->id = $id;
     $this->name = $name;
     $this->address = $address;
     $this->city = $city;
@@ -35,9 +38,34 @@ class RestaurantLocation implements FileConvertible
     $this->hasDriveThru = $hasDriveThru;
   }
 
+  public function getId(): string
+  {
+    return $this->id;
+  }
+
   public function getName(): string
   {
     return $this->name;
+  }
+
+  public function getAddress(): string
+  {
+    return $this->address;
+  }
+
+  public function getCity(): string
+  {
+    return $this->city;
+  }
+
+  public function getState(): string
+  {
+    return $this->state;
+  }
+
+  public function getZipCode(): string
+  {
+    return $this->zipCode;
   }
 
   public function getEmployees(): array

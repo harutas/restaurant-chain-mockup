@@ -82,6 +82,7 @@ class RandomGenerator
     $employees = self::Employees();
 
     return new RestaurantLocation(
+      $faker->uuid(),
       $faker->company(),
       $faker->address(),
       $faker->city(),

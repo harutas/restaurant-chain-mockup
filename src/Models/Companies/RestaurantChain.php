@@ -52,6 +52,11 @@ class RestaurantChain extends Company implements FileConvertible
     $this->parentCompany = $parentCompany;
   }
 
+  public function getChainId(): string
+  {
+    return $this->chainId;
+  }
+
   public function getName(): string
   {
     return $this->name;
