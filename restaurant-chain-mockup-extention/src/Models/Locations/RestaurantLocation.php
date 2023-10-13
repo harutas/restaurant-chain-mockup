@@ -104,7 +104,6 @@ class RestaurantLocation implements FileConvertible
     return sprintf(
       "
         <div class='restaurant-location-card'>
-          <div class='avatar'>SAMPLE</div>
           <h2>%s</h2>
           <p>Address: %s</p>
           <p>City: %s</p>
@@ -129,13 +128,13 @@ class RestaurantLocation implements FileConvertible
   {
     return sprintf(
       "## Restaurant Location Name: {$this->name}
-        - Address: {$this->address}
-        - City: {$this->city}
-        - State: {$this->state}
-        - Zip Code: {$this->zipCode}
-        - Employees: %s
-        - Is Open: %s
-        - Has Drive Thru: %s
+   - Address: {$this->address}
+   - City: {$this->city}
+   - State: {$this->state}
+   - Zip Code: {$this->zipCode}
+   - Employees: %s
+   - Is Open: %s
+   - Has Drive Thru: %s
       ",
       implode(", ", $this->employeesToStringArray()),
       $this->isOpen ? "Open" : "Close",

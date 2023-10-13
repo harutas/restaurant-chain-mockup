@@ -24,7 +24,7 @@
         <div class="col">
           <label for="min-employees">
             Min:</label>
-          <input class="form-control" type="number" id="min-employees" name="min_employees" min="1" max="100" value="10">
+          <input class="form-control" type="number" id="min-employees" name="min-employees" min="1" max="100" value="10">
         </div>
       </div>
 
@@ -61,7 +61,7 @@
           <label class="fs-5" for="format">Download Format:</label>
           <select class="form-select" id="format" name="format">
             <option value="html">HTML</option>
-            <option value="markdown">Markdown</option>
+            <option value="md">Markdown</option>
             <option value="json">JSON</option>
             <option value="txt">Text</option>
           </select>
@@ -72,10 +72,7 @@
       </div>
     </form>
   </div>
-
-
   <!-- TODO: 場所の郵便番号の範囲を設定 -->
-
 </body>
 
 </html>

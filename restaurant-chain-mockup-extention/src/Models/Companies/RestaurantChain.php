@@ -23,7 +23,6 @@ class RestaurantChain extends Company implements FileConvertible
     bool $isPubliclyTraded,
     string $country,
     string $founder,
-    int $totalEmployees,
     string $chainId,
     array $restaurantLocations,
     string $cuisineType,
@@ -40,7 +39,6 @@ class RestaurantChain extends Company implements FileConvertible
       $isPubliclyTraded,
       $country,
       $founder,
-      $totalEmployees,
       $chainId,
       $restaurantLocations,
       $cuisineType,
@@ -86,9 +84,7 @@ class RestaurantChain extends Company implements FileConvertible
   public function toString(): string
   {
     return sprintf(
-      "Restaurant Chain Name: %s\nFounding Year: %s\nDescription: %s\nWebsite: %s\nPhone: %s\nIndustry: %s\n
-      CEO: %s\nIs Publicly Traded: %s\nCountry: %s\nFounder: %s\nTotal Employees: %s\n
-      Chain ID: %s\nRestaurant Locations: %s\nCuisine Type: %s\nNumber Of Locations: %s\nParent Company: %s\n",
+      "Restaurant Chain Name: %s\nFounding Year: %s\nDescription: %s\nWebsite: %s\nPhone: %s\nIndustry: %s\nCEO: %s\nIs Publicly Traded: %s\nCountry: %s\nFounder: %s\nChain ID: %s\nRestaurant Locations: %s\nCuisine Type: %s\nNumber Of Locations: %s\nParent Company: %s\n",
       $this->name,
       $this->foundingYear,
       $this->description,
@@ -97,6 +93,8 @@ class RestaurantChain extends Company implements FileConvertible
       $this->industry,
       $this->ceo,
       $this->isPubliclyTraded,
+      $this->country,
+      $this->founder,
       $this->chainId,
       implode(", ", $this->restaurantLocationsToStringArray()),
       $this->cuisineType,
@@ -110,7 +108,6 @@ class RestaurantChain extends Company implements FileConvertible
     return sprintf(
       "
         <div class='restaurant-chain-card'>
-          <div class='avatar'>SAMPLE</div>
           <h2>%s</h2>
           <p>Founding Year: %s</p>
           <p>Description: %s</p>
@@ -119,6 +116,8 @@ class RestaurantChain extends Company implements FileConvertible
           <p>Industry: %s</p>
           <p>CEO: %s</p>
           <p>Is Publicly Traded: %s</p>
+          <p>Country: %s</p>
+          <p>Founder: %s</p>
           <p>Chain ID: %s</p>
           <p>Restaurant Locations: %s</p>
           <p>Cuisine Type: %s</p>
@@ -133,6 +132,8 @@ class RestaurantChain extends Company implements FileConvertible
       $this->industry,
       $this->ceo,
       $this->isPubliclyTraded,
+      $this->country,
+      $this->founder,
       $this->chainId,
       implode(", ", $this->restaurantLocationsToStringArray()),
       $this->cuisineType,
@@ -145,19 +146,21 @@ class RestaurantChain extends Company implements FileConvertible
   {
     return sprintf(
       "## Restaurant Chain Name: {$this->name}
-         - Founding Year: {$this->foundingYear}
-         - Description: {$this->description}
-         - Website: {$this->website}
-         - Phone: {$this->phone}
-         - Industry: {$this->industry}
-         - CEO: {$this->ceo}
-         - Is Publicly Traded: {$this->isPubliclyTraded}
-         - Chain ID: {$this->chainId}
-         - Restaurant Locations: %s
-         - Cuisine Type: {$this->cuisineType}
-         - Number Of Locations: %s
-         - Parent Company: {$this->parentCompany}
-      ",
+   - Founding Year: {$this->foundingYear}
+   - Description: {$this->description}
+   - Website: {$this->website}
+   - Phone: {$this->phone}
+   - Industry: {$this->industry}
+   - CEO: {$this->ceo}
+   - Is Publicly Traded: {$this->isPubliclyTraded}
+   - Country: {$this->country}
+   - Founder: {$this->founder}
+   - Chain ID: {$this->chainId}
+   - Restaurant Locations: %s
+   - Cuisine Type: {$this->cuisineType}
+   - Number Of Locations: %s
+   - Parent Company: {$this->parentCompany}
+",
       implode(", ", $this->restaurantLocationsToStringArray()),
       $this->getNumberOfLocations()
     );
@@ -174,8 +177,10 @@ class RestaurantChain extends Company implements FileConvertible
       "industry" => $this->industry,
       "ceo" => $this->ceo,
       "isPubliclyTraded" => $this->isPubliclyTraded,
+      "Country" => $this->country,
+      "Founder" => $this->founder,
       "chainId" => $this->chainId,
-      "restaurantLocations" => $this->restaurantLocations,
+      "restaurantLocations" => $this->restaurantLocationsToStringArray(),
       "cuisineType" => $this->cuisineType,
       "numberOfLocations" => $this->getNumberOfLocations(),
       "parentCompany" => $this->parentCompany
