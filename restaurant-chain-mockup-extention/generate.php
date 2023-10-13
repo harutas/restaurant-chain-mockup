@@ -17,14 +17,14 @@
       <div class="row w-50 my-3">
         <p class="fs-5 mb-0">Number of employee range:</p>
         <div class="col">
-          <label for="max-employees">
-            Max:</label>
-          <input class="form-control" type="number" id="max-employees" name="max-employees" min="1" max="100" value="10">
-        </div>
-        <div class="col">
           <label for="min-employees">
             Min:</label>
-          <input class="form-control" type="number" id="min-employees" name="min-employees" min="1" max="100" value="10">
+          <input class="form-control" type="number" id="min-employees" name="min-employees" min="1" max="100" value="5">
+        </div>
+        <div class="col">
+          <label for="max-employees">
+            Max:</label>
+          <input class="form-control" type="number" id="max-employees" name="max-employees" min="1" max="100" value="50">
         </div>
       </div>
 
@@ -32,12 +32,12 @@
       <div class="row w-50 my-3">
         <p class="fs-5 mb-0">Employee salary range:</p>
         <div class="col">
-          <label for="max-salary">Max:</label>
-          <input class="form-control" type="number" id="max-salary" name="max-salary" min="1" max="100" value="50">
+          <label for="min-salary">Min:</label>
+          <input class="form-control" type="number" id="min-salary" name="min-salary" min="1" max="100" value="10">
         </div>
         <div class="col">
-          <label for="min-salary">Min:</label>
-          <input class="form-control" type="number" id="min-salary" name="min-salary" min="1" max="100" value="50">
+          <label for="max-salary">Max:</label>
+          <input class="form-control" type="number" id="max-salary" name="max-salary" min="1" max="100" value="50">
         </div>
       </div>
 
@@ -45,12 +45,12 @@
       <div class="row w-50 my-3">
         <p class="fs-5 mb-0">Number of locations:</p>
         <div class="col">
-          <label for="max-locations">Max:</label>
-          <input class="form-control" type="number" id="max-locations" name="max-locations" min="1" max="100" value="5">
+          <label for="min-locations">Min:</label>
+          <input class="form-control" type="number" id="min-locations" name="min-locations" min="1" max="100" value="1">
         </div>
         <div class="col">
-          <label for="min-locations">Min:</label>
-          <input class="form-control" type="number" id="min-locations" name="min-locations" min="1" max="100" value="5">
+          <label for="max-locations">Max:</label>
+          <input class="form-control" type="number" id="max-locations" name="max-locations" min="1" max="100" value="5">
         </div>
       </div>
 
